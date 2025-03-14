@@ -70,7 +70,7 @@ class InputController extends Controller
     public function EditInput($id)
     {
         $input = Input::findOrFail($id);
-        return view('inputdataharian.inputdataharian-update', compact('kondisi'));
+        return view('inputdataharian.inputdataharian-update', compact('input'));
     }
 
     public function UpdateInput(Request $request, $id)

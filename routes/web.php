@@ -9,6 +9,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KondisiController;
 use App\Http\Controllers\InputController;
 use App\Http\Controllers\InputMuatanController;
+use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\AkunsayaController;
 
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -69,5 +71,24 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/inputdatamuatan-read/{id}', [InputMuatanController::class, 'Delete'])->name('inputmuatan-delete');
     Route::get('/inputdatamuatan-edit/{id}', [InputMuatanController::class, 'EditInputMuatan'])->name('inputmuatan-edit');
     Route::put('/inputdatamuatan-update/{id}', [InputMuatanController::class, 'UpdateInputMuatan'])->name('inputmuatan-update');
+
+
+    //Data Karyawan
+    Route::get('/karyawan-read', [KaryawanController::class, 'KaryawanRead'])->name('karyawan-read');
+    Route::get('/karyawan-look/{id}', [KaryawanController::class, 'KaryawanLook'])->name('karyawan-lihat');
+    Route::get('/karyawan-create', [KaryawanController::class, 'KaryawanCreate'])->name('karyawan-create');
+    Route::post('/karyawan-create', [KaryawanController::class, 'KaryawanAdd'])->name('karyawan-add');
+    Route::delete('/karyawan-read/{id}', [KaryawanController::class, 'Delete'])->name('karyawan-delete');
+    Route::get('/karyawan-edit/{id}', [KaryawanController::class, 'EditKaryawan'])->name('karyawan-edit');
+    Route::put('/karyawan-update/{id}', [KaryawanController::class, 'UpdateKaryawan'])->name('karyawan-update');
+
+    //Akun Saya
+    Route::get('/akunsaya-read', [AkunsayaController::class, 'AkunsayaRead'])->name('akunsaya-read');
+    Route::get('/akunsaya-look/{id}', [AkunsayaController::class, 'AkunsayaLook'])->name('akunsaya-lihat');
+    Route::get('/akunsaya-create', [AkunsayaController::class, 'AkunsayaCreate'])->name('akunsaya-create');
+    Route::post('/akunsaya-create', [AkunsayaController::class, 'AkunsayaAdd'])->name('akunsaya-add');
+    Route::delete('/akunsaya-read/{id}', [AkunsayaController::class, 'Delete'])->name('akunsaya-delete');
+    Route::get('/akunsaya-edit/{id}', [AkunsayaController::class, 'EditAkunsaya'])->name('akunsaya-edit');
+    Route::put('/akunsaya-update/{id}', [AkunsayaController::class, 'UpdateAkunsaya'])->name('akunsaya-update');
 
 });
